@@ -1,4 +1,4 @@
-# FS_MPC
+# fs-mpc
 
 For these scripts we use the [MP-SPDZ library](https://github.com/data61/MP-SPDZ) for secure multiparty computations. To run the scripts, you can download one of the releases of MP-SPDZ [here](https://github.com/data61/MP-SPDZ///releases) (tested with version 0.3.7).
 
