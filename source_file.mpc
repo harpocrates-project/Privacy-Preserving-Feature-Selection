@@ -1,0 +1,65 @@
+import pickle
+
+from Compiler import fs_scores as mything
+
+# use sfix as main secret data type and set its precision.
+sfix.set_precision(32,63)
+print_float_precision(20)
+
+L0tmp = pickle.load(open("./Player-Data/L0.p", 'rb'))
+L1tmp = pickle.load(open("./Player-Data/L1.p", 'rb'))
+L2tmp = pickle.load(open("./Player-Data/L2.p", 'rb'))
+
+P0tmp = pickle.load(open("./Player-Data/P0.p", 'rb'))
+P1tmp = pickle.load(open("./Player-Data/P1.p", 'rb'))
+P2tmp = pickle.load(open("./Player-Data/P2.p", 'rb'))
+
+P0ctmp = pickle.load(open("./Player-Data/P0c.p", 'rb'))
+P1ctmp = pickle.load(open("./Player-Data/P1c.p", 'rb'))
+P2ctmp = pickle.load(open("./Player-Data/P2c.p", 'rb'))
+
+Hxy0tmp = pickle.load(open("./Player-Data/Hxy0.p", 'rb'))
+Hxy1tmp = pickle.load(open("./Player-Data/Hxy1.p", 'rb'))
+Hxy2tmp = pickle.load(open("./Player-Data/Hxy2.p", 'rb'))
+
+hjoint0tmp = pickle.load(open("./Player-Data/hjoint0.p", 'rb'))
+hjoint1tmp = pickle.load(open("./Player-Data/hjoint1.p", 'rb'))
+hjoint2tmp = pickle.load(open("./Player-Data/hjoint2.p", 'rb'))
+
+hy0tmp = pickle.load(open("./Player-Data/hy0.p", 'rb'))
+hy1tmp = pickle.load(open("./Player-Data/hy1.p", 'rb'))
+hy2tmp = pickle.load(open("./Player-Data/hy2.p", 'rb'))
+
+L0 = sfix.input_tensor_via(0, L0tmp, binary=False)
+L1 = sfix.input_tensor_via(0, L1tmp, binary=False)
+L2 = sfix.input_tensor_via(0, L2tmp, binary=False)
+
+P0 = sfix.input_tensor_via(0, P0tmp, binary=False)
+P1 = sfix.input_tensor_via(0, P1tmp, binary=False)
+P2 = sfix.input_tensor_via(0, P2tmp, binary=False)
+
+P0c = sfix.input_tensor_via(0, P0ctmp, binary=False)
+P1c = sfix.input_tensor_via(0, P1ctmp, binary=False)
+P2c = sfix.input_tensor_via(0, P2ctmp, binary=False)
+
+Hxy0 = sfix.input_tensor_via(0, Hxy0tmp, binary=False)
+Hxy1 = sfix.input_tensor_via(0, Hxy1tmp, binary=False)
+Hxy2 = sfix.input_tensor_via(0, Hxy2tmp, binary=False)
+
+hjoint0 = sfix.input_tensor_via(0, hjoint0tmp, binary=False)
+hjoint1 = sfix.input_tensor_via(0, hjoint1tmp, binary=False)
+hjoint2 = sfix.input_tensor_via(0, hjoint2tmp, binary=False)
+
+hy0 = sfix.input_tensor_via(0, hy0tmp, binary=False)
+hy1 = sfix.input_tensor_via(0, hy1tmp, binary=False)
+hy2 = sfix.input_tensor_via(0, hy2tmp, binary=False)
+
+fs_scores = mything.FS_SCORES()
+
+# feature scores
+
+# results = fs_scores.get_all_bounds(Hxy0, Hxy1, Hxy2, P0c, P1c, P2c, L0, L1, L2, hy0, hy1, hy2)
+
+results = fs_scores.get_all_mi(hjoint0, hjoint1, hjoint2, P0, P1, P2, hy0, hy1, hy2)
+
+
