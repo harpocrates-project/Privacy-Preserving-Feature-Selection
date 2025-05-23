@@ -1,4 +1,6 @@
-# fs-mpc
+# Privacy preserving feature selection
+
+This repository contains scripts and methods to compute mutual information for feature selection in machine learning, in a privacy preserving manner. The code contains both a straight forward implementation of mutual information as well as efficient upper bounds.
 
 For these scripts we use the [MP-SPDZ library](https://github.com/data61/MP-SPDZ) for secure multiparty computations. To run the scripts, you can download one of the releases of MP-SPDZ [here](https://github.com/data61/MP-SPDZ///releases) (tested with version 0.3.7).
 
